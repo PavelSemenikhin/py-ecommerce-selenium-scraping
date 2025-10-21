@@ -18,12 +18,11 @@ BASE_URL = "https://webscraper.io/"
 HOME_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/")
 COMPUTERS_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/computers/")
 LAPTOPS_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/computers/laptops")
-TABLETS_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/phones/tablets")
+TABLETS_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/computers/tablets")
 PHONES_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/phones")
 TOUCH_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/phones/touch")
 
 driver = webdriver.Chrome()
-driver.get(HOME_URL)
 
 
 def accept_cookies(driver : WebDriver) -> None:
@@ -143,6 +142,8 @@ def save_to_csv(filename: str, products: list[Product]) -> None:
 
 
 def get_all_products() -> None:
+    driver = webdriver.Chrome()
+
     pages = {
         "home": HOME_URL,
         "computers": COMPUTERS_URL,
