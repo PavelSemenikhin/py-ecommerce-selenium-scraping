@@ -142,8 +142,6 @@ def save_to_csv(filename: str, products: list[Product]) -> None:
 
 
 def get_all_products() -> None:
-    driver = webdriver.Chrome()
-
     pages = {
         "home": HOME_URL,
         "computers": COMPUTERS_URL,
@@ -152,6 +150,8 @@ def get_all_products() -> None:
         "phones": PHONES_URL,
         "touch": TOUCH_URL,
     }
+
+    driver = webdriver.Chrome()
 
     try:
         for page_name, url in pages.items():
